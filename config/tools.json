@@ -1,0 +1,55 @@
+{
+  "name": "currency-exchange",
+  "description": "MCP-сервер для конвертации валют и получения курсов",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "get_exchange_rate",
+      "description": "Получает текущий обменный курс между двумя валютами",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "base_currency": {
+            "type": "string",
+            "description": "Базовая валюта (например: USD)"
+          },
+          "target_currency": {
+            "type": "string",
+            "description": "Целевая валюта (например: RUB)"
+          }
+        },
+        "required": ["base_currency", "target_currency"]
+      }
+    },
+    {
+      "name": "convert_currency",
+      "description": "Конвертирует сумму из одной валюты в другую",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "description": "Сумма для конвертации"
+          },
+          "from_currency": {
+            "type": "string",
+            "description": "Исходная валюта (например: USD)"
+          },
+          "to_currency": {
+            "type": "string",
+            "description": "Целевая валюта (например: RUB)"
+          }
+        },
+        "required": ["amount", "from_currency", "to_currency"]
+      }
+    },
+    {
+      "name": "list_available_currencies",
+      "description": "Возвращает список всех доступных валют с кодами и названиями",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ]
+}
