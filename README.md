@@ -47,13 +47,12 @@ cp .env.example .env
 
 ## Запуск MCP-сервера
 ```bash
-python mcp_server/server.py
+mcp_server/server.py
 ```
 Сервер запустится на stdio (для MCP-протокола) и HTTP (для тестирования).
 
 ## Примеры запросов через агента
 ```bash
-python
 from agent.agent import CurrencyAgent
 agent = CurrencyAgent()
 #Конвертация валют
@@ -69,7 +68,6 @@ print(result)
 
 ## Прямые вызовы MCP-сервера
 ```bash
-python
 import requests
 import json
 ````
@@ -99,11 +97,13 @@ print(json.dumps(response.json(), indent=2))
 
 ## Структура проекта
 ```
-text
 currency-mcp-agent/
 ├── README.md                    #Эта документация
 ├── requirements.txt             #Зависимости Python
 ├── .env.example                #Шаблон переменных окружения
+├── .gitignore
+├── Dockerfile
+├── docker-compose.yml
 ├── mcp_server/
 │   ├── __init__.py
 │   └── server.py              #MCP-сервер с 3 инструментами
@@ -154,7 +154,7 @@ currency-mcp-agent/
 # Тестирование
 Запустите тесты для проверки функциональности:
 ```bash
-python -m pytest tests/test_mcp_server.py -v
+-m pytest tests/test_mcp_server.py -v
 ```
 ## Лицензия
 MIT License
